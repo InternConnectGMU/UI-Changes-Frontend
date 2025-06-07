@@ -158,12 +158,12 @@ const Dashboard = () => {
                 <div className="flex flex-wrap gap-1 mb-4">
                   {project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <Badge key={techIndex} variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      <span>{tech}</span>
+                      {tech}
                     </Badge>
                   ))}
                   {project.technologies.length > 3 && (
                     <Badge variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      <span>+{project.technologies.length - 3} more</span>
+                      +{project.technologies.length - 3} more
                     </Badge>
                   )}
                 </div>
