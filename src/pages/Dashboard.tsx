@@ -132,7 +132,7 @@ const Dashboard = () => {
                   </Badge>
                   {project.verified && (
                     <Badge variant="outline" className="text-green-600 border-green-600 border-2">
-                      ✅ Verified
+                      <span>✅ Verified</span>
                     </Badge>
                   )}
                 </div>
@@ -158,17 +158,17 @@ const Dashboard = () => {
                 <div className="flex flex-wrap gap-1 mb-4">
                   {project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <Badge key={techIndex} variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      {tech}
+                      <span>{tech}</span>
                     </Badge>
                   ))}
                   {project.technologies.length > 3 && (
                     <Badge variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      +{project.technologies.length - 3} more
+                      <span>+{project.technologies.length - 3} more</span>
                     </Badge>
                   )}
                 </div>
 
-                <Button variant="outline" className="w-full border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent hover:bg-internconnect-800 hover:text-white btn-3d" size="sm">
+                <Button variant="outline" className="w-full border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent hover:bg-internconnect-800 hover:text-black btn-3d" size="sm">
                   View Details
                 </Button>
               </CardContent>
