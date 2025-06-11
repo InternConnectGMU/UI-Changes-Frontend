@@ -26,13 +26,17 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/auth">
-              <Button size="lg" variant="secondary" className="btn-3d bg-white from-blue-600 to-green-600 bg-clip-text text-transparent hover:text-black hover:bg-gray-100 border-2 border-internconnect-800">
-                Get Started
+              <Button size="lg" variant="secondary" className="btn-3d bg-white hover:text-black hover:bg-gray-100 border-2 border-internconnect-800">
+                <span className="font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                  Get Started
+                </span>
               </Button>
             </Link>
             <Link to="/dashboard">
-              <Button size="lg" variant="outline" className="btn-3d from-blue-600 to-green-600 bg-clip-text text-transparent border-2 border-internconnect-800 hover:bg-white hover:text-black">
-                Explore Projects
+              <Button size="lg" variant="outline" className="border-2 bg-white border-internconnect-800 hover:bg-white hover:text-black btn-3d ">
+                <span className="font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                  Explore Projects
+                </span>
               </Button>
             </Link>
           </div>
