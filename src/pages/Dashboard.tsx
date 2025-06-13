@@ -121,11 +121,11 @@ const Dashboard = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {projects.map((project, index) => (
-            <Card key={index} className="bg-white border-2 border-black shadow-3d hover:shadow-3d-hover transition-all duration-300">
+            <Card key={index} className="bg-white border-2 border-black shadow-3d hover:shadow-3d-hover transition-all duration-300 h-full flex flex-col">
               <CardHeader>
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex justify-between items-start mb-2 ">
                   <Badge variant={project.status === "Completed" ? "default" : "secondary"}
                          className={project.status === "Completed" ? "bg-gradient-to-r from-blue-600 to-green-600 text-white" : "bg-gray-200 text-gray-800"}>
                     {project.status}
@@ -141,36 +141,38 @@ const Dashboard = () => {
                   {project.category}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
-                
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Users className="w-4 h-4 mr-2" />
-                    <span>{project.students.length} students</span>
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium text-gray-700">Faculty:</span>
-                    <span className="text-gray-600 ml-1">{project.faculty}</span>
-                  </div>
+              <CardContent className="flex flex-col justify-between h-full flex-1">
+                <div>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
                 </div>
+                <div className="mt-auto">
+                  <div className="space-y-3 mb-4 ">
+                    <div className="flex items-center text-sm text-gray-500 ">
+                      <Users className="w-4 h-4 mr-2" />
+                      <span>{project.students.length} students</span>
+                    </div>
+                    <div className="text-sm">
+                      <span className="font-medium text-gray-700">Faculty:</span>
+                      <span className="text-gray-600 ml-1">{project.faculty}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                      <Badge key={techIndex} variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                        {tech}
+                      </Badge>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <Badge variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                        +{project.technologies.length - 3} more
+                      </Badge>
+                    )}
+                  </div>
 
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      {tech}
-                    </Badge>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <Badge variant="outline" className="text-xs border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                      +{project.technologies.length - 3} more
-                    </Badge>
-                  )}
+                  <Button variant="outline" className="w-full border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent hover:bg-internconnect-800 hover:text-black btn-3d" size="sm">
+                    View Details
+                  </Button>
                 </div>
-
-                <Button variant="outline" className="w-full border-2 border-internconnect-800 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent hover:bg-internconnect-800 hover:text-black btn-3d" size="sm">
-                  View Details
-                </Button>
               </CardContent>
             </Card>
           ))}
